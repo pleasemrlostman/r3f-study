@@ -1,6 +1,7 @@
 import { useThree, useFrame } from "@react-three/fiber";
 import * as Three from "three";
 import { useRef } from "react";
+import { useControls } from "leva";
 
 const ThreeElement = () => {
   const { size } = useThree();
@@ -15,6 +16,16 @@ const ThreeElement = () => {
   //     // }
   //   });
 
+  const box = useControls({
+    rotation: {
+      value: 0,
+      min: -360,
+      max: 360,
+      step: 1,
+    },
+    color: "black",
+  });
+
   return (
     <>
       <directionalLight position={[5, 5, 5]} />
@@ -23,7 +34,7 @@ const ThreeElement = () => {
         ref={boxRef}
         rotation={[
           Three.MathUtils.degToRad(45),
-          Three.MathUtils.degToRad(45),
+          Three.MathUtils.degToRad(box.rotation),
           0,
         ]}
       >
