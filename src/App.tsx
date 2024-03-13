@@ -3,9 +3,10 @@ import ThreeElement from "./ThreeElement";
 import "./App.css";
 import { OrbitControls } from "@react-three/drei";
 import { useControls } from "leva";
+import ThreeElement2 from "./ThreeElement2";
 function App() {
   const color = useControls({
-    backgroundColor: "green",
+    backgroundColor: "white",
   });
 
   const grid = useControls({
@@ -40,7 +41,8 @@ function App() {
         <axesHelper args={[15]} />
         {/* 2번째 값은 격자 조절 첫번 째 m를 몇으로 나눠라 라는 의미*/}
         <gridHelper args={[10, grid.segement, grid.color]} />
-        <ThreeElement />
+        {/* <ThreeElement /> */}
+        <ThreeElement2 />
       </Canvas>
     </>
   );
